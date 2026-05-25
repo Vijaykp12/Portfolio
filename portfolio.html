@@ -553,6 +553,8 @@
   .reveal-delay-1 { transition-delay: 0.1s; }
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
@@ -577,6 +579,76 @@
   .leetcode-banner .lc-count {
     font-size: 1.2rem; font-weight: 700;
     font-family: 'Syne', sans-serif;
+  }
+
+  /* ── CERTIFICATIONS ── */
+  .cert-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px; max-width: 1100px;
+  }
+  .cert-card {
+    background: var(--surface2); border: 1px solid var(--border);
+    padding: 32px; position: relative; overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
+  }
+  .cert-card:hover { border-color: var(--accent2); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(167,139,250,0.1); }
+  .cert-issuer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent2); margin-bottom: 12px;
+  }
+  .cert-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+  .cert-title {
+    font-size: 1.05rem; font-weight: 700;
+    margin-bottom: 8px; line-height: 1.4;
+  }
+  .cert-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--muted); line-height: 1.5; margin-bottom: 16px;
+  }
+  .cert-badge {
+    display: inline-block; padding: 4px 12px;
+    background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.25);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+    color: var(--accent2); letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  /* ── EXTRACURRICULAR ── */
+  .extra-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px; max-width: 1200px;
+  }
+  .extra-card {
+    padding: 36px; background: var(--surface);
+    border: 1px solid var(--border); position: relative;
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s;
+    overflow: hidden;
+  }
+  .extra-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--accent3), var(--accent2));
+    transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+  }
+  .extra-card:hover { transform: translateY(-6px); border-color: rgba(52,211,153,0.4); }
+  .extra-card:hover::before { transform: scaleX(1); }
+  .extra-icon-wrap {
+    width: 56px; height: 56px; border-radius: 12px;
+    background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px; font-size: 1.6rem;
+    transition: background 0.3s;
+  }
+  .extra-card:hover .extra-icon-wrap { background: rgba(52,211,153,0.15); }
+  .extra-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+  .extra-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 20px; }
+  .extra-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .extra-tag {
+    padding: 4px 10px;
+    background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; color: var(--accent3);
   }
 
   /* Roles ticker */
@@ -615,6 +687,8 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#hackathons">Hackathons</a></li>
     <li><a href="#education">Education</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#extracurricular">Extras</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -635,7 +709,7 @@
   </h1>
 
   <div class="roles-ticker">
-    <div class="role-chip">ML Engineer</div>
+    <div class="role-chip">Applied AI Engineer</div>
     <div class="role-chip">Full Stack Dev</div>
     <div class="role-chip">Problem Solver</div>
   </div>
@@ -661,7 +735,7 @@
       <span class="stat-label">LeetCode</span>
     </div>
     <div class="stat">
-      <span class="stat-num">3</span>
+      <span class="stat-num">4</span>
       <span class="stat-label">Projects</span>
     </div>
   </div>
@@ -722,7 +796,7 @@
       </div>
       <div class="info-row">
         <span class="info-key">Focus</span>
-        <span class="info-val">Full Stack Developer · Backend</span>
+        <span class="info-val">AI / ML · Mobile · Backend</span>
       </div>
       <div class="info-row">
         <span class="info-key">Status</span>
@@ -746,7 +820,7 @@
       <button class="cat-btn" data-cat="ai">AI / ML</button>
       <button class="cat-btn" data-cat="languages">Languages</button>
       <button class="cat-btn" data-cat="frameworks">Frameworks</button>
-      <button class="cat-btn" data-cat="tools">Tools</button>
+      <button class="cat-btn" data-cat="tools">DevOps & Tools</button>
     </div>
 
     <div class="skills-grid" id="skills-grid"></div>
@@ -775,17 +849,22 @@
     <div class="project-card reveal">
       <div class="project-num">01</div>
       <div class="project-date">April 2026</div>
-      <h3 class="project-title">Annific</h3>
-      <p class="project-desc">Traffic Flow Analysis and Prediction System leveraging GNNs and time-series models to predict urban congestion patterns with high accuracy.</p>
+      <h3 class="project-title">SkillGraph</h3>
+      <p class="project-desc">AI-Powered Workforce Ontology and Career Recommender that maps skill relationships using graph databases and FAISS-based semantic search to deliver intelligent, personalized career path recommendations at scale.</p>
       <div class="project-tools">
-        <span class="tool-chip">Pandas</span>
-        <span class="tool-chip">NumPy</span>
-        <span class="tool-chip">MapLibre</span>
+        <span class="tool-chip">Python</span>
         <span class="tool-chip">FastAPI</span>
-        <span class="tool-chip">GraphSAGE</span>
+        <span class="tool-chip">Neo4j</span>
+        <span class="tool-chip">FAISS</span>
+        <span class="tool-chip">Next.js</span>
+        <span class="tool-chip">Docker</span>
+        <span class="tool-chip">Redis</span>
+        <span class="tool-chip">Celery</span>
+        <span class="tool-chip">PostgreSQL</span>
+        <span class="tool-chip">PyG</span>
       </div>
       <div class="project-links">
-        <a href="https://github.com/Vijaykp12/TrafficDetection" class="proj-link">
+        <a href="#" class="proj-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
         </a>
@@ -804,7 +883,7 @@
         <span class="tool-chip">Dart</span>
       </div>
       <div class="project-links">
-        <a href="https://github.com/Vijaykp12/HabitsFlutter" class="proj-link">
+        <a href="#" class="proj-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
         </a>
@@ -822,11 +901,102 @@
         <span class="tool-chip">Gemini API</span>
       </div>
       <div class="project-links">
-        <a href="https://github.com/Vijaykp12/Health-and-Fitness-Platform" class="proj-link">
+        <a href="#" class="proj-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
         </a>
+      </div>
+    </div>
 
+
+    <div class="project-card reveal reveal-delay-3">
+      <div class="project-num">04</div>
+      <div class="project-date">April 2026</div>
+
+      <h3 class="project-title">Annific</h3>
+
+      <p class="project-desc">
+        AI-powered application focused on intelligent automation and analytics,
+        integrating modern machine learning workflows with scalable backend systems
+        for efficient data processing and insights generation.
+      </p>
+
+      <div class="project-tools">
+        <span class="tool-chip">Python</span>
+        <span class="tool-chip">FastAPI</span>
+        <span class="tool-chip">AI/ML</span>
+        <span class="tool-chip">MapLibre</span>
+        <span class="tool-chip">ReactJS</span>
+
+      </div>
+
+      <div class="project-links">
+        <a href="https://github.com/Vijaykp12/Traffic-Frontend" class="proj-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="project-card reveal reveal-delay-4">
+      <div class="project-num">05</div>
+      <div class="project-date">April 2024</div>
+
+      <h3 class="project-title">Railway Reservation System</h3>
+
+      <p class="project-desc">
+        Console-based Railway Reservation Management System developed in C using
+        file handling for persistent data storage, supporting ticket booking,
+        cancellation, passenger records, and train management operations.
+      </p>
+
+      <div class="project-tools">
+        <span class="tool-chip">C</span>
+        <span class="tool-chip">File System</span>
+        <span class="tool-chip">Data Structures</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://github.com/Vijaykp12/Railway-Reservation-System" class="proj-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="project-card reveal reveal-delay-5">
+      <div class="project-num">06</div>
+      <div class="project-date">April 2025</div>
+
+      <h3 class="project-title">Hospital Management System</h3>
+
+      <p class="project-desc">
+        Full-stack Hospital Management System built using Java Swing and NetBeans
+        with PostgreSQL integration, featuring appointment scheduling, patient
+        records, billing management, and database-driven healthcare workflows.
+      </p>
+
+      <div class="project-tools">
+        <span class="tool-chip">Java</span>
+        <span class="tool-chip">NetBeans</span>
+        <span class="tool-chip">PostgreSQL</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://github.com/Vijaykp12/Hospital-Management-System" class="proj-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+          GitHub
+        </a>
       </div>
     </div>
 
@@ -838,6 +1008,14 @@
   <div class="section-label">04 — Achievements</div>
   <h2 class="section-title">Hackathons & Recognition</h2>
   <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2026</div>
+      <h3 class="timeline-title">Construction Cost Prediction ML Challenge</h3>
+      <span class="timeline-badge badge-gold">🏆 Rank 80 / 400</span>
+      <p class="timeline-desc">Achieved top 20% ranking out of 400 participants in a competitive machine learning challenge focused on predicting construction costs — applying advanced regression techniques and feature engineering.</p>
+    </div>
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
@@ -891,7 +1069,7 @@
     </div>
 
     <div class="edu-card reveal reveal-delay-2" data-pct="96.8%">
-      <div class="edu-level">Secondary</div>
+      <div class="edu-level">Higher Secondary</div>
       <div class="edu-degree">11th</div>
       <div class="edu-school">Lakshmi Matric Hr. Sec. School</div>
       <div class="edu-year">2020 – 2021 · Trichy</div>
@@ -902,9 +1080,113 @@
   </div>
 </section>
 
+<!-- ── CERTIFICATIONS ── -->
+<section id="certifications" style="background: var(--surface);">
+  <div class="section-label">06 — Certifications</div>
+  <h2 class="section-title">Courses & Credentials</h2>
+  <div class="cert-grid" id="cert-grid">
+
+    <div class="cert-card reveal">
+      <div class="cert-issuer">NPTEL</div>
+      <div class="cert-icon">📜</div>
+      <h3 class="cert-title">Statistical Foundation for Big Data Analysis</h3>
+      <p class="cert-meta">Indian Institute of Technology Kharagpur · NPTEL Online Certification</p>
+
+      <a href="https://drive.google.com/file/d/1DOfwZEEdCSNF6ANZfbtK5nPfh9EVCcxE/view?usp=sharing" target="_blank" class="proj-link">
+        View Certificate
+      </a>
+    </div>
+
+    <div class="cert-card reveal reveal-delay-1">
+      <div class="cert-issuer">NPTEL</div>
+      <div class="cert-icon">📜</div>
+      <h3 class="cert-title">Getting Started with Competitive Programming</h3>
+      <p class="cert-meta">Indian Institute of Technology Gandhipuram · NPTEL Online Certification</p>
+
+      <a href="https://drive.google.com/file/d/1wPibvbuuoKo1fv4mBMgWcwQKldWh1skZ/view?usp=sharing" target="_blank" class="proj-link">
+        View Certificate
+      </a>
+    </div>
+
+    <div class="cert-card reveal reveal-delay-2">
+      <div class="cert-issuer">NPTEL</div>
+      <div class="cert-icon">📜</div>
+      <h3 class="cert-title">Cyber Security and Privacy</h3>
+      <p class="cert-meta">Indian Institute of Technology Madras · NPTEL Online Certification</p>
+
+      <a href="https://drive.google.com/file/d/1C-MPABhmZF2hKE6JQ2FUNGQCQqODe-B8/view?usp=sharing" target="_blank" class="proj-link">
+        View Certificate
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ── EXTRACURRICULAR ── -->
+<section id="extracurricular">
+  <div class="section-label">07 — Beyond Code</div>
+  <h2 class="section-title">Extracurricular</h2>
+  <div class="extra-grid">
+
+    <div class="extra-card reveal">
+      <div class="extra-icon-wrap">
+        <span class="extra-emoji">💃</span>
+      </div>
+      <h3 class="extra-title">Dancing</h3>
+      <p class="extra-desc">Movement as expression — finding rhythm and flow in dance, which sharpens creativity and spatial thinking that translates into elegant problem solving.</p>
+      <div class="extra-tags">
+        <span class="extra-tag">Creative</span>
+        <span class="extra-tag">Rhythm</span>
+        <span class="extra-tag">Performance</span>
+      </div>
+    </div>
+
+    <div class="extra-card reveal reveal-delay-1">
+      <div class="extra-icon-wrap">
+        <span class="extra-emoji">✏️</span>
+      </div>
+      <h3 class="extra-title">Drawing & Sketching</h3>
+      <p class="extra-desc">Visual thinking through pencil and paper — sketching ideas, designs, and illustrations that train an eye for detail, composition, and aesthetics.</p>
+      <div class="extra-tags">
+        <span class="extra-tag">Visual Art</span>
+        <span class="extra-tag">Design Thinking</span>
+        <span class="extra-tag">Illustration</span>
+      </div>
+    </div>
+
+    <div class="extra-card reveal reveal-delay-2">
+      <div class="extra-icon-wrap">
+        <span class="extra-emoji">🎖️</span>
+      </div>
+      <h3 class="extra-title">National Cadet Corps</h3>
+      <p class="extra-desc">Top Cadet recognition in NCC — building leadership, discipline, and teamwork through rigorous training and community service activities.</p>
+      <div class="extra-tags">
+        <span class="extra-tag">Leadership</span>
+        <span class="extra-tag">Discipline</span>
+        <span class="extra-tag">Top Cadet</span>
+      </div>
+    </div>
+
+    <div class="extra-card reveal reveal-delay-3">
+      <div class="extra-icon-wrap">
+        <span class="extra-emoji">📄</span>
+      </div>
+      <h3 class="extra-title">Head Volunteer — Invente 2025</h3>
+      <p class="extra-desc">Led volunteering operations for Invente Paper Presentation 2025, coordinating teams, managing logistics, and ensuring smooth event execution.</p>
+      <div class="extra-tags">
+        <span class="extra-tag">Event Management</span>
+        <span class="extra-tag">Team Lead</span>
+        <span class="extra-tag">Coordination</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ── CONTACT ── -->
 <section id="contact">
-  <div class="section-label" style="justify-content:center">06 — Contact</div>
+  <div class="section-label" style="justify-content:center">08 — Contact</div>
   <h2 class="section-title" style="text-align:center; margin-bottom: 16px;">Let's Build Together</h2>
   <p class="contact-tagline">
     Open to internships, collaborations, and interesting conversations about technology.
@@ -965,10 +1247,10 @@ document.querySelectorAll('a, button, input, select').forEach(el => {
 
 // ── SKILLS DATA
 const skillsData = {
-  ai: ['Graph Neural Networks','Node Embeddings','Time-Series Forecasting','PyTorch Geometric','NetworkX','GraphSAGE'],
-  languages: ['Python','Java','Dart','JavaScript','SQL'],
-  frameworks: ['Flutter','FastAPI','Node.js','Firebase Firestore'],
-  tools: ['MapLibre','Git','PostgreSQL','Gemini API']
+  ai: ['Graph Neural Networks','FAISS','PyTorch Geometric','NetworkX','GraphSAGE','Gemini AI', 'LLM Integration', 'Prompt Engineering'],
+  languages: ['Python','Java','Dart','JavaScript','SQL', 'HTML', 'CSS'],
+  frameworks: ['Flutter','FastAPI','Next.js','React.js','Node.js','Firebase Firestore'],
+  tools: ['Neo4j','Docker','Redis','Celery','MapLibre','Git','PostgreSQL','Gemini API','CI/CD Pipelines', 'GitHub Actions']
 };
 
 let activeFilter = 'all';
